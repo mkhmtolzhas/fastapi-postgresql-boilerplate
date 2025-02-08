@@ -1,14 +1,13 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Mapped, mapped_column
+from src.database import Base
 
 
-Base = declarative_base()
 
 class PostModel(Base):
     __tablename__ = "posts"
 
-    id: int = Column(Integer, primary_key=True, index=True)
-    title: str = Column(String)
-    content: str = Column(String)
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    title: Mapped[str] 
+    content: Mapped[str]
 
 
