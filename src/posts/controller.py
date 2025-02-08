@@ -25,6 +25,8 @@ class PostController:
             return await PostService.get_post_by_id(session=session, post_id=post_id)
         except Exception as e:
             raise HTTPException(status_code=400, detail=str(e))
+        
+        
     @staticmethod
     async def update_post(session: AsyncSession, post_id: int, updated_post: PostUpdate):
         try:
